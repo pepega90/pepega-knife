@@ -165,6 +165,7 @@ int main()
                         // cout << "sama" << endl;
                         PlaySound(mental);
                         kn.stuck = false;
+                        gameOver = true;
                         knifeMental.push_back(kn);
                     }
                 }
@@ -227,12 +228,14 @@ int main()
             }
 
             // restart game
-            if (CheckCollisionPointRec(GetMousePosition(), restartRect) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            if (CheckCollisionPointRec(GetMousePosition(), restartRect) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && restartGame)
             {
                 gameOver = false;
                 arr.clear();
                 lengthFgKnife = 5;
                 knifeStuckCount = 0;
+                score = 0;
+                targetRotSpeed = 2;
             }
 
             // DrawTextureEx(target, Vector2{ WIDTH / 2 - 100, HEIGHT / 4 }, rot, 0.3, WHITE);
